@@ -5,12 +5,12 @@ import datetime as dt
 import plotly.figure_factory as ff
 import altair as alt
 import plotly.express as px
-import os
+# import os
 
 # load data
-abs_path = os.path.dirname(__file__)
-full_path = os.path.join(abs_path, 'spotify_pop_music.csv')
-music_df = pd.read_csv(full_path)
+# abs_path = os.path.dirname(__file__)
+# full_path = os.path.join(abs_path, 'spotify_pop_music.csv')
+music_df = pd.read_csv(r'spotify_pop_music.csv')
 music_df.drop_duplicates(inplace=True)
 music_df["release_date"] = pd.to_datetime(music_df["release_date"])
 music_df["year"] = music_df["release_date"].dt.year
