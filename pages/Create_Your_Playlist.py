@@ -99,6 +99,7 @@ if 'key' not in st.session_state:
 else:
     st.session_state.key = st.session_state.key
 
+
 # change the list if there's none that user is interested
 if st.button('change'):
     st.session_state.key = st.session_state.key + 20
@@ -120,6 +121,9 @@ for index, row in user_interface_df.iterrows():
 
 # ============== make recommendations ============== 
 # st.subheader('Here\'s your customized pop music playlist:')
+# add blank space
+st.markdown('##')
+st.markdown('##')
 if st.button("Generate your Spotify pop music playlist"):
     selected_check_indexs_list = [checklist_indexes_list[i] for i in range(len(if_check_list)) if if_check_list[i] == True]
     selected_check_df = selected_context_df[selected_context_df.index.isin(selected_check_indexs_list)]
@@ -161,10 +165,6 @@ if st.button("Generate your Spotify pop music playlist"):
         return album_cover_url
 
     recommend_df['url'] = 'https://open.spotify.com/track/' + recommend_df['id']
-
-    # add blank space
-    st.markdown('##')
-    st.markdown('##')
 
     for i in recommend_df.index:
         img_url = get_album_cover_url(sp, recommend_df.loc[i, 'id'])
