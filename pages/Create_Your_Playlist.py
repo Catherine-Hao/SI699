@@ -120,51 +120,52 @@ for index, row in user_interface_df.iterrows():
 
 # ============== make recommendations ============== 
 # st.subheader('Here\'s your customized pop music playlist:')
-selected_check_indexs_list = [checklist_indexes_list[i] for i in range(len(if_check_list)) if if_check_list[i] == True]
-selected_check_df = selected_context_df[selected_context_df.index.isin(selected_check_indexs_list)]
-
-# calculate the mean of music features - from checked boxes and slidebars
-user_selected_features_np = [np.array([danceability, energy, speechiness, acousticness, instrumentalness, liveness, valence]).reshape(-1, )]
-for i in selected_check_df.index:
-    user_selected_features_np.append(music_features_np[i])
-user_selected_features_mean_np = np.mean(np.stack(user_selected_features_np), axis=0)
-
-# calculate cosine similarity
-cosine_simi_dict = {}
-for i in selected_context_df.index:
-    cosine_simi_dict[i] = cosine_similarity(
-        user_selected_features_mean_np.reshape(1, -1),
-        music_features_np[i].reshape(1, -1),
-    )[0][0]
-
-# keep top 10 most similar
-top_10_similar_list = sorted(
-    cosine_simi_dict.items(), key=lambda x: x[1], reverse=True
-)[:10]
-recommend_index_list = []
-for i in top_10_similar_list:
-    recommend_index_list.append(i[0])
-
-# generate a recommended playlist of 10 songs
-recommend_df = selected_context_df[selected_context_df.index.isin(recommend_index_list)]
-# use spotipy to get the album cover 
-cid = "b9ff596f8afd419ab00f96c0e3ff1aff"
-secret = "fcc60a813705409090478d22581c726e"
-client_credentials_manager = SpotifyClientCredentials(
-    client_id=cid, client_secret=secret
-)
-sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
-def get_album_cover_url(spotipy_obj, track_id):
-    track_info = spotipy_obj.track(track_id)
-    album_cover_url = track_info['album']['images'][0]['url']
-    return album_cover_url
-
-recommend_df['url'] = 'https://open.spotify.com/track/' + recommend_df['id']
-
-# add blank space
-st.markdown('##')
-st.markdown('##')
 if st.button("Generate your Spotify pop music playlist"):
+    selected_check_indexs_list = [checklist_indexes_list[i] for i in range(len(if_check_list)) if if_check_list[i] == True]
+    selected_check_df = selected_context_df[selected_context_df.index.isin(selected_check_indexs_list)]
+
+    # calculate the mean of music features - from checked boxes and slidebars
+    user_selected_features_np = [np.array([danceability, energy, speechiness, acousticness, instrumentalness, liveness, valence]).reshape(-1, )]
+    for i in selected_check_df.index:
+        user_selected_features_np.append(music_features_np[i])
+    user_selected_features_mean_np = np.mean(np.stack(user_selected_features_np), axis=0)
+
+    # calculate cosine similarity
+    cosine_simi_dict = {}
+    for i in selected_context_df.index:
+        cosine_simi_dict[i] = cosine_similarity(
+            user_selected_features_mean_np.reshape(1, -1),
+            music_features_np[i].reshape(1, -1),
+        )[0][0]
+
+    # keep top 10 most similar
+    top_10_similar_list = sorted(
+        cosine_simi_dict.items(), key=lambda x: x[1], reverse=True
+    )[:10]
+    recommend_index_list = []
+    for i in top_10_similar_list:
+        recommend_index_list.append(i[0])
+
+    # generate a recommended playlist of 10 songs
+    recommend_df = selected_context_df[selected_context_df.index.isin(recommend_index_list)]
+    # use spotipy to get the album cover 
+    cid = "b9ff596f8afd419ab00f96c0e3ff1aff"
+    secret = "fcc60a813705409090478d22581c726e"
+    client_credentials_manager = SpotifyClientCredentials(
+        client_id=cid, client_secret=secret
+    )
+    sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)
+    def get_album_cover_url(spotipy_obj, track_id):
+        track_info = spotipy_obj.track(track_id)
+        album_cover_url = track_info['album']['images'][0]['url']
+        return album_cover_url
+
+    recommend_df['url'] = 'https://open.spotify.com/track/' + recommend_df['id']
+
+    # add blank space
+    st.markdown('##')
+    st.markdown('##')
+
     for i in recommend_df.index:
         img_url = get_album_cover_url(sp, recommend_df.loc[i, 'id'])
         # # Option 1:
