@@ -4,6 +4,6 @@ pandas
 datetime
 altair
 scipy
-sklearn
+scikit-learn
 spotipy
 numpy
