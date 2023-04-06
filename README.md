@@ -1,4 +1,4 @@
 # SI699
 
 Pop Music Analytics on Spotify dataset:
-https://catherine-hao-si699-dashboard-fe4u7y.streamlit.app/
+https://catherine-hao-si699-music-analytics-xw280c.streamlit.app/
