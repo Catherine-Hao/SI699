@@ -6,14 +6,14 @@ Contact haorlin@umich.edu.
 
 Getting started
 ---------------
-First, we'll need to get the source code of this project. Do this by cloning the whole repository:
+First, get the source code of this project. Do this by cloning the whole repository:
 
 ```bash
 # Clone the example project repo
 git clone https://github.com/Catherine-Hao/SI699.git
 ```
 
-Then, we need to install some dependencies:
+Then, install some dependencies:
 
 ```bash
 pip install -r SI699/requirements.txt
@@ -24,6 +24,8 @@ Finally, the following command will setup the streamlit application, and start t
 ```bash
 streamlit run /SI699/code/Music_Analytics.py
 ```
+
+Now, we can view this application in the browser with a local or network URL.
 
 
 Pop Music Analytics on Spotify dataset:
