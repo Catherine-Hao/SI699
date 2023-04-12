@@ -9,7 +9,7 @@ Data access statement
 ---------------
 how to access the data or explaining who owns the data
 
-The data from this project is accessed via Spotify Web API, which enables the creation of applications that can interact with Spotify's streaming service, such as retrieving content metadata, getting recommendations, creating and managing playlists, or controlling playback.
+The data from this project is accessed via Spotify Web API, which enables the creation of applications that can interact with Spotify's streaming service, such as retrieving content metadata, getting recommendations, creating and managing playlists, or controlling playback. When users create an app, they would gain access to the app credentials. These will be required for API authorization to obtain an access token, and access token are required in API requests.
 
 
 How to run the app?
