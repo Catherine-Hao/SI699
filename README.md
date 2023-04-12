@@ -9,7 +9,7 @@ Getting started
 First you'll need to get the source of the project. Do this by cloning the whole repository:
 
 ```bash
-# Get the example project code
+# Clone the example project repo
 git clone https://github.com/Catherine-Hao/SI699.git
 ```
 
