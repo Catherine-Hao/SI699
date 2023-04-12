@@ -16,7 +16,7 @@ git clone https://github.com/Catherine-Hao/SI699.git
 Then, we need to install some dependencies:
 
 ```bash
-pip install -r si699-fapp-sprints/docs/requirements.txt
+pip install -r SI699/requirements.txt
 ```
 
 
