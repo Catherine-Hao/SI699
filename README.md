@@ -1,7 +1,6 @@
 # SI699
 
-This project creates a pop music analytics dashboard and a multi-context-aware music recommender system with Spotify API. [Find more.](https://catherine-hao-si699-music-analytics-xw280c.streamlit.app/)
-
+This project creates a pop music analytics dashboard and a multi-context-aware music recommender system with Spotify API. 
 Contact haorlin@umich.edu.
 
 Getting started
@@ -25,7 +24,8 @@ Finally, the following command will setup the streamlit application, and start t
 streamlit run /SI699/code/Music_Analytics.py
 ```
 
-Now, we can view this application in the browser with a local or network URL.
+Now, we can view this application in the browser with a local or network URL [(example)](https://catherine-hao-si699-music-analytics-xw280c.streamlit.app/).
+
 
 
 Pop Music Analytics on Spotify dataset:
