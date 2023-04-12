@@ -19,7 +19,11 @@ Then, we need to install some dependencies:
 pip install -r SI699/requirements.txt
 ```
 
+Finally, the following command will setup the streamlit application, and start the server:
 
+```bash
+streamlit run /SI699/code/Music_Analytics.py
+```
 
 
 Pop Music Analytics on Spotify dataset:
