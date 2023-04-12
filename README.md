@@ -4,6 +4,10 @@ This project creates a pop music analytics dashboard and a multi-context-aware m
 
 [Find more](https://catherine-hao-si699-music-analytics-xw280c.streamlit.app/)
 
+Contact haorlin@umich.edu
+
+
+
 Pop Music Analytics on Spotify dataset:
 
 
