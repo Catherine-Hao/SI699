@@ -6,11 +6,17 @@ Contact haorlin@umich.edu.
 
 Getting started
 ---------------
-First, you'll need to get the source of the project. Do this by cloning the whole repository:
+First, we'll need to get the source code of this project. Do this by cloning the whole repository:
 
 ```bash
 # Clone the example project repo
 git clone https://github.com/Catherine-Hao/SI699.git
+```
+
+Then, we need to install some dependencies:
+
+```bash
+pip install -r si699-fapp-sprints/docs/requirements.txt
 ```
 
 
