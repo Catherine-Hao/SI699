@@ -6,7 +6,7 @@ Contact haorlin@umich.edu.
 
 Getting started
 ---------------
-First you'll need to get the source of the project. Do this by cloning the whole repository:
+First, you'll need to get the source of the project. Do this by cloning the whole repository:
 
 ```bash
 # Clone the example project repo
