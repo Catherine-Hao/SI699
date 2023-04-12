@@ -4,6 +4,10 @@ This project creates a pop music analytics dashboard and a multi-context-aware m
 
 Contact haorlin@umich.edu.
 
+Getting started
+---------------
+
+
 
 
 Pop Music Analytics on Spotify dataset:
