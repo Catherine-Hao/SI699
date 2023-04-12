@@ -7,7 +7,7 @@ Contact haorlin@umich.edu.
 
 Data access statement
 ---------------
-The data from this project is accessed via [Spotify Web API] (https://developer.spotify.com/documentation/web-api), which enables the creation of applications that can interact with Spotify's streaming service, such as retrieving content metadata, getting recommendations, creating and managing playlists, or controlling playback. Users can gain access to the credentials when creating an application. These will be required for API authorization to obtain an access token, and access token are required in API requests.
+The data from this project is accessed via [Spotify Web API](https://developer.spotify.com/documentation/web-api), which enables the creation of applications that can interact with Spotify's streaming service, such as retrieving content metadata, getting recommendations, creating and managing playlists, or controlling playback. Users can gain access to the credentials when creating an application. These will be required for API authorization to obtain an access token, and access token are required in API requests.
 
 
 How to run the app?
