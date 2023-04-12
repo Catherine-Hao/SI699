@@ -1,4 +1,4 @@
-# SI699
+# 🎶 SI699
 
 This project creates a pop music analytics dashboard and a multi-context-aware music recommender system with Spotify API. 
 
