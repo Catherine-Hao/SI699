@@ -2,7 +2,7 @@
 
 This project creates a pop music analytics dashboard and a multi-context-aware music recommender system with Spotify.
 
-Streamlit application: https://catherine-hao-si699-music-analytics-xw280c.streamlit.app/
+[Find more] https://catherine-hao-si699-music-analytics-xw280c.streamlit.app/
 
 Pop Music Analytics on Spotify dataset:
 
