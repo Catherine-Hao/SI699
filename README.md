@@ -32,5 +32,6 @@ streamlit run /SI699/code/Music_Analytics.py
 ```
 
 Now we can view this application in the browser with a local or network URL [(example)](https://catherine-hao-si699-music-analytics-xw280c.streamlit.app/).
+Have fun!
 
 
