@@ -4,7 +4,7 @@ This project creates a pop music analytics dashboard and a multi-context-aware m
 
 Contact haorlin@umich.edu.
 
-Getting started
+To run the app
 ---------------
 First get the source code of this project. Do this by cloning the whole repository:
 
