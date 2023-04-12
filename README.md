@@ -7,6 +7,10 @@ Contact haorlin@umich.edu.
 
 Data access statement
 ---------------
+how to access the data or explaining who owns the data
+
+The data from this project is accessed via Spotify Web API, which enables the creation of applications that can interact with Spotify's streaming service, such as retrieving content metadata, getting recommendations, creating and managing playlists, or controlling playback.
+
 
 How to run the app?
 ---------------
