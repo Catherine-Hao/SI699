@@ -19,4 +19,3 @@ git clone https://github.com/Catherine-Hao/SI699.git
 Pop Music Analytics on Spotify dataset:
 
 
-SI699.ipynb is a notebook which has 
