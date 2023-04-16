@@ -68,7 +68,6 @@ pca_data = pca.fit_transform(music_features_np)
 # kmeans clustering: 4 clusters
 kmeans_model = KMeans(n_clusters=4, random_state=42, init="k-means++")
 kmeans_labels = kmeans_model.fit_predict(pca_data)
-# !!! this part is messed up !!!
 # match contexts with labels
 # 0-focus 1-relax 2-energize 3-commute
 context_dict = {'Focus': 0, 'Relax': 1, 'Energize': 2, 'Commute': 3}
@@ -80,7 +79,7 @@ selected_context_df = shuffled_music_df[(shuffled_music_df.index.isin(selected_c
 
 
 # ============== user preference for music features ============== 
-st.subheader('Next step, add your personal taste...')
+st.subheader('Next step, add your personal touch...')
 danceability = st.slider('Danceability', 0.0, 1.0, 0.5, help='Danceability describes how suitable a track is for dancing and is based “on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.')
 energy = st.slider('Energy', 0.0, 1.0, 0.5, help='Energy measures the perceived intensity and activity of a track. This feature is based on the dynamic range, perceived loudness, timbre, onset rate, and general entropy of a track.')
 speechiness = st.slider('Speechiness', 0.0, 1.0, 0.5, help='Speechiness detects the presence of spoken words in a track. High speechiness values indicate a high degree of spoken words (e.g., talk shows or audiobooks), whereas medium to high values indicate e.g., rap music.')
