@@ -3,11 +3,8 @@ import pandas as pd
 import datetime as dt
 import plotly.graph_objs as go
 import plotly.figure_factory as ff
-import altair as alt
 import plotly.express as px
 import os
-import time
-import random
 import numpy as np
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -75,20 +72,22 @@ kmeans_labels = kmeans_model.fit_predict(pca_data)
 # match contexts with labels
 # 0-focus 1-relax 2-energize 3-commute
 context_dict = {'Focus': 0, 'Relax': 1, 'Energize': 2, 'Commute': 3}
+context_labels = shuffled_music_df['context'].to_list()
 selected_context_label = context_dict[selected_context]
-selected_context_indexes = [i for i in range(len(kmeans_labels)) if kmeans_labels[i] == selected_context_label]
+selected_context_indexes = [i for i in range(len(context_labels)) if context_labels[i] == selected_context_label]
+# selected_context_indexes = [i for i in range(len(kmeans_labels)) if kmeans_labels[i] == selected_context_label]
 selected_context_df = shuffled_music_df[(shuffled_music_df.index.isin(selected_context_indexes)) & (shuffled_music_df['popularity'] >= 50)]
 
 
 # ============== user preference for music features ============== 
 st.subheader('Next step, add your personal taste...')
-danceability = st.slider('danceability', 0.0, 1.0, 0.5)
-energy = st.slider('energy', 0.0, 1.0, 0.5)
-speechiness = st.slider('speechiness', 0.0, 1.0, 0.5)
-acousticness = st.slider('acousticness', 0.0, 1.0, 0.5)
-instrumentalness = st.slider('instrumentalness', 0.0, 1.0, 0.5)
-liveness = st.slider('liveness', 0.0, 1.0, 0.5)
-valence = st.slider('valence', 0.0, 1.0, 0.5)
+danceability = st.slider('Danceability', 0.0, 1.0, 0.5, help='Danceability describes how suitable a track is for dancing and is based “on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.')
+energy = st.slider('Energy', 0.0, 1.0, 0.5, help='Energy measures the perceived intensity and activity of a track. This feature is based on the dynamic range, perceived loudness, timbre, onset rate, and general entropy of a track.')
+speechiness = st.slider('Speechiness', 0.0, 1.0, 0.5, help='Speechiness detects the presence of spoken words in a track. High speechiness values indicate a high degree of spoken words (e.g., talk shows or audiobooks), whereas medium to high values indicate e.g., rap music.')
+acousticness = st.slider('Acousticness', 0.0, 1.0, 0.5, help='Acousticness measures the probability that the given track is acoustic.')
+instrumentalness = st.slider('Instrumentalness', 0.0, 1.0, 0.5, help='Instrumentalness measures the probability that a track is not vocal (i.e., instrumental).')
+liveness = st.slider('Liveness', 0.0, 1.0, 0.5, help='Liveness captures the probability that the track was performed live (i.e., whether an audience is present in the recording).')
+valence = st.slider('Valence', 0.0, 1.0, 0.5, help='Valence measures the “musical positiveness” conveyed by a track (i.e., cheerful and euphoric tracks reach high valence values).')
 
 # ============== user listening history ============== 
 st.subheader('Lastly, check the songs you\'re into...')
