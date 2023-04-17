@@ -24,6 +24,14 @@ music_df = load_data(full_path)
 # music_df = pd.read_csv(full_path)
 music_df.drop_duplicates(inplace=True)
 
+help_dict = {'danceability' :'Danceability describes how suitable a track is for dancing and is based “on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.',
+'energy' : 'Energy measures the perceived intensity and activity of a track. This feature is based on the dynamic range, perceived loudness, timbre, onset rate, and general entropy of a track.',
+'speechiness' : 'Speechiness detects the presence of spoken words in a track. High speechiness values indicate a high degree of spoken words (e.g., talk shows or audiobooks), whereas medium to high values indicate e.g., rap music.',
+'acousticness' : 'Acousticness measures the probability that the given track is acoustic.',
+'instrumentalness' : 'Instrumentalness measures the probability that a track is not vocal (i.e., instrumental).',
+'liveness' :'Liveness captures the probability that the track was performed live (i.e., whether an audience is present in the recording).',
+'valence' : 'Valence measures the “musical positiveness” conveyed by a track (i.e., cheerful and euphoric tracks reach high valence values).'}
+
 
 # set header 
 st.header('Pop Music Analytics on Spotify dataset')
@@ -59,6 +67,8 @@ box_option_artists = st.multiselect(
     'Select an artist',
     top_10_artists, 
     [])
+st.markdown('##')
+st.write(help_dict[box_option])
 
 # # Choice 1: box plot
 # if not box_option_artists:
@@ -130,13 +140,18 @@ dist_option_artists = st.multiselect(
     top_10_artists,
     ['Taylor Swift'])
 
+st.markdown('##')
+st.write(help_dict[dist_option_features])
+
 group_labels = dist_option_artists
 
-selected_music_df_list = []
-for i in dist_option_artists:
-    selected_music_df_list.append(music_df[music_df['artist_name'] == i][dist_option_features])
-
-artists_dist = ff.create_distplot(selected_music_df_list, group_labels)
+if dist_option_artists:
+    selected_music_df_list = []
+    for i in dist_option_artists:
+        selected_music_df_list.append(music_df[music_df['artist_name'] == i][dist_option_features])
+    artists_dist = ff.create_distplot(selected_music_df_list, group_labels, show_hist=False)
+else:
+    artists_dist = ff.create_distplot([music_df[dist_option_features]], ['All artists'],  show_hist=False)
 st.plotly_chart(artists_dist, theme="streamlit", use_container_width=True)
 
 
