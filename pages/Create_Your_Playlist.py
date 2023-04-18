@@ -161,11 +161,9 @@ if st.button("Generate your Spotify pop music playlist"):
     # use spotipy to get the album cover 
     
     # personal API credentials removed
-    # replace with real client_id here
-    cid = "cid"
-    # replace with real client_secret here
-    secret = "secret"
-    
+
+    cid = "b9ff596f8afd419ab00f96c0e3ff1aff"
+    secret = "fcc60a813705409090478d22581c726e"
     client_credentials_manager = SpotifyClientCredentials(
         client_id=cid, client_secret=secret
     )
